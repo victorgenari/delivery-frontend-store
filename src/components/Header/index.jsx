@@ -1,5 +1,5 @@
 // CSS
-import { BgLupaAndInput, Company, Container, Content, IconAndBtnLogin, LupaAndInput, LupaInputAndCart, MenuList } from "./styles";
+import { Company, Container, Content, IconAndBtnLogin, Cart, MenuList } from "./styles";
 
 import LogoImg from '../../assets/icons/logo.svg'
 
@@ -24,18 +24,9 @@ export function Header() {
                     <a href="/">Suporte</a>
                 </MenuList>
 
-                <LupaInputAndCart>
-
-                    <BgLupaAndInput>
-                        <LupaAndInput>
-                            <i><BiSearchAlt /></i>
-                            <input type="search" placeholder="Pesquise um produto" />
-                        </LupaAndInput>
-                    </BgLupaAndInput>
-
+                <Cart>
                     <i><BsFillCartCheckFill /></i>
-
-                </LupaInputAndCart>
+                </Cart>
 
                 <IconAndBtnLogin>
                     <i><FiLogIn /></i>
