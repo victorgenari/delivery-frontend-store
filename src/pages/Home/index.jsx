@@ -3,15 +3,21 @@ import {
     BackgroundImgLanches, Container,
     IconAndTime, IconDeliveryBtn,
     IconValue, MoreDetailsBtn,
-    TimeDelivery, DeliveryTimeValueDetails, IconAndInputSearch
+    TimeDelivery, DeliveryTimeValueDetails,
+    IconAndInputSearch, Highlights, Combos,
+    Products, CardsHighlights, CardsWithoutTitleHighlights
 } from "./styles";
 
 // Components
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 
+// Imgs
 import LanchesBackground from '../../assets/images/lanches-background.jpg'
+import BurgerDuplo from '../../assets/images/burger-duplo.jpg'
+import XSaladaTriplo from '../../assets/images/x-salada-triplo.jpg'
 
+// Icons
 import { RiEBikeLine } from 'react-icons/ri'
 import { MdKeyboardArrowDown, MdOutlineWatchLater } from 'react-icons/md'
 import { GiReceiveMoney } from 'react-icons/gi'
@@ -60,17 +66,43 @@ export function Home() {
                     </MoreDetailsBtn>
                 </DeliveryTimeValueDetails>
 
-                <div>
-                    <h1>Highlights</h1>
-                </div>
+                <Highlights>
 
-                <div>
+                    <div>
+                        <h1>Destaques</h1>
+                    </div>
+
+                    <CardsWithoutTitleHighlights>
+                        <CardsHighlights>
+                            <img src={BurgerDuplo} alt="Burger Duplo" />
+                            <h3>Burger Duplo</h3>
+                            <div>
+                                <p>Pão de hambúrguer, carne 2x, bacon, queijo &amp; molho especial ..</p>
+                                <p>Serve 1 pessoa</p>
+                                <h4>R$: 00,00</h4>
+                            </div>
+                        </CardsHighlights>
+
+                        <CardsHighlights>
+                            <img src={XSaladaTriplo} alt="X Salada Triplo" />
+                            <h3>XL - Triplo</h3>
+                            <div>
+                                <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial</span>
+                                <span>Serve 1 pessoa</span>
+                                <h4>R$: 00,00</h4>
+                            </div>
+                        </CardsHighlights>
+                    </CardsWithoutTitleHighlights>
+
+                </Highlights>
+
+                <Combos>
                     <h1>Combos</h1>
-                </div>
+                </Combos>
 
-                <div>
+                <Products>
                     <h1>Produtos</h1>
-                </div>
+                </Products>
 
             </Container>
 

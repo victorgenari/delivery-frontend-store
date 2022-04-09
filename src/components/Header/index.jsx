@@ -3,7 +3,6 @@ import { Company, Container, Content, IconAndBtnLogin, Cart, MenuList } from "./
 
 import LogoImg from '../../assets/icons/logo.svg'
 
-import { BiSearchAlt } from 'react-icons/bi'
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import { FiLogIn } from 'react-icons/fi'
 

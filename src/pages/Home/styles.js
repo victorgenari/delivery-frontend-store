@@ -37,6 +37,8 @@ export const IconAndInputSearch = styled.div`
     }
 `
 
+
+// Info entregas
 export const DeliveryTimeValueDetails = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -106,3 +108,73 @@ export const MoreDetailsBtn = styled.div`
     }
 `
 
+
+// Destaques
+export const Highlights = styled.div`
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+`
+
+export const CardsHighlights = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #808080;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        h4 {
+            font-size: 1.2rem;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        transition: 0.5s;
+        filter: brightness(0.8);
+        border: 2px solid #000000;
+    }
+
+    img {
+        width: 100%;
+        height: 10rem;
+
+        border-radius: 0.5rem;
+    }
+
+    h3 {
+        font-weight: 600;
+        margin: 0.5rem 0 0.8rem 0;
+    }
+`
+
+
+
+export const CardsWithoutTitleHighlights = styled.div`
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+`
+
+export const Combos = styled.div`
+    width: 100%;
+
+    border: 2px solid #000000;
+`
+
+export const Products = styled.div`
+    width: 100%;
+
+    border: 2px solid #000000;
+`
