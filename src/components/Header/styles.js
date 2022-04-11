@@ -20,7 +20,7 @@ export const Content = styled.div`
     padding: 1.1rem 0;
     background: #FAFAFA;
 
-    @media (max-width: 880px) {
+    @media (max-width: 985px) {
         width: 100%;
     }
 `
@@ -39,6 +39,16 @@ export const Company = styled.div`
 export const MenuList = styled.div`
     display: flex;
     gap: 1.5rem;
+
+    a {
+        border-bottom: 1px solid transparent;
+        padding: 0.5rem;
+
+        &:hover {
+            transition: .3s;
+            border-bottom: 1px solid #808080;
+        }
+    }
 
     @media (max-width: 525px) {
         display: none;

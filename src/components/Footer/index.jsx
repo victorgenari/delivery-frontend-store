@@ -57,9 +57,9 @@ export function Footer() {
                     <h3>Localização</h3>
                     <IconAndAddress>
                         <i><GrLocation /></i>
-                        <span>Estrada Egílio Vitorello, 780 / Carapicuíba - SP</span>
+                        <span>Av. Brigadeiro Faria Lima, 000 / São Paulo - SP</span>
                     </IconAndAddress>
-                    <span>CEP: 06365-210</span>
+                    <span>CEP: 01451-000</span>
                 </Localization>
 
                 <Privacity>

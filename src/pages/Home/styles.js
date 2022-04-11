@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// Detalhes de entrega
+// Detalhes pgn / entregas
 export const Container = styled.div`
     max-width: 1000px;
     margin: 2rem auto;
@@ -140,7 +140,6 @@ export const CardsHighlights = styled.div`
     }
 
     &:hover {
-        cursor: pointer;
         transition: 0.5s;
         filter: brightness(0.8);
         border: 2px solid #000000;
@@ -160,19 +159,54 @@ export const CardsHighlights = styled.div`
 `
 
 
-
 export const CardsWithoutTitleHighlights = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    margin-bottom: 2rem;
 `
 
+
+// Combos
 export const Combos = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     width: 100%;
 
-    border: 2px solid #000000;
+    margin-bottom: 2rem;
 `
 
+export const BgCardsCombos = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+`
+
+export const CardsCombos = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #808080;
+
+    h3 {
+        font-weight: 600;
+    }
+
+    &:hover {
+        transition: .3s;
+        filter: brightness(0.9);
+        border: 2px solid #000000;
+    }
+
+`
+
+
+// Produtos
 export const Products = styled.div`
     width: 100%;
 

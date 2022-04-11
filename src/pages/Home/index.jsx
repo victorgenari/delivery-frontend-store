@@ -5,7 +5,8 @@ import {
     IconValue, MoreDetailsBtn,
     TimeDelivery, DeliveryTimeValueDetails,
     IconAndInputSearch, Highlights, Combos,
-    Products, CardsHighlights, CardsWithoutTitleHighlights
+    Products, CardsHighlights, CardsWithoutTitleHighlights,
+    BgCardsCombos, CardsCombos
 } from "./styles";
 
 // Components
@@ -77,7 +78,7 @@ export function Home() {
                             <img src={BurgerDuplo} alt="Burger Duplo" />
                             <h3>Burger Duplo</h3>
                             <div>
-                                <p>Pão de hambúrguer, carne 2x, bacon, queijo &amp; molho especial ..</p>
+                                <p>Pão de hambúrguer, carne 2x, bacon, queijo &amp; molho especial.</p>
                                 <p>Serve 1 pessoa</p>
                                 <h4>R$: 00,00</h4>
                             </div>
@@ -87,7 +88,7 @@ export function Home() {
                             <img src={XSaladaTriplo} alt="X Salada Triplo" />
                             <h3>XL - Triplo</h3>
                             <div>
-                                <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial</span>
+                                <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
                                 <span>Serve 1 pessoa</span>
                                 <h4>R$: 00,00</h4>
                             </div>
@@ -98,6 +99,60 @@ export function Home() {
 
                 <Combos>
                     <h1>Combos</h1>
+
+                    <BgCardsCombos>
+                        <CardsCombos>
+                            <img src="" alt="Imagem Lanche" />
+                            <h3>Nome Lanche</h3>
+                            <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
+                            <span>Serve 1 pessoa</span>
+                            <h4>R$: 00,00</h4>
+                        </CardsCombos>
+
+                        <CardsCombos>
+                            <img src="" alt="Imagem Lanche" />
+                            <h3>Nome Lanche</h3>
+                            <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
+                            <span>Serve 1 pessoa</span>
+                            <h4>R$: 00,00</h4>
+                        </CardsCombos>
+                    </BgCardsCombos>
+
+                    <BgCardsCombos>
+                        <CardsCombos>
+                            <img src="" alt="Imagem Lanche" />
+                            <h3>Nome Lanche</h3>
+                            <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
+                            <span>Serve 1 pessoa</span>
+                            <h4>R$: 00,00</h4>
+                        </CardsCombos>
+
+                        <CardsCombos>
+                            <img src="" alt="Imagem Lanche" />
+                            <h3>Nome Lanche</h3>
+                            <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
+                            <span>Serve 1 pessoa</span>
+                            <h4>R$: 00,00</h4>
+                        </CardsCombos>
+                    </BgCardsCombos>
+
+                    <BgCardsCombos>
+                        <CardsCombos>
+                            <img src="" alt="Imagem Lanche" />
+                            <h3>Nome Lanche</h3>
+                            <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
+                            <span>Serve 1 pessoa</span>
+                            <h4>R$: 00,00</h4>
+                        </CardsCombos>
+
+                        <CardsCombos>
+                            <img src="" alt="Imagem Lanche" />
+                            <h3>Nome Lanche</h3>
+                            <span>Pão de hambúrguer, carne 3x, cheddar, salada &amp; molho especial.</span>
+                            <span>Serve 1 pessoa</span>
+                            <h4>R$: 00,00</h4>
+                        </CardsCombos>
+                    </BgCardsCombos>
                 </Combos>
 
                 <Products>
