@@ -36,10 +36,6 @@ export const GlobalStyle = createGlobalStyle`
     body {
         /* Isso irá ajudar a fonte ficar mais detalhada/nítida entre os navegadores */
         -webkit-font-smoothing: antialiased;
-
-        @media (max-width: 995px) {
-            padding: 1rem;
-        }
     }
 
     button {

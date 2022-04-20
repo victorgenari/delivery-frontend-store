@@ -5,6 +5,11 @@ import { useParams } from "react-router-dom"
 // Importando a API
 import api from "../../services/api"
 
+// Icons
+import { MdKeyboardArrowLeft } from "react-icons/md"
+
+// CSS
+import { Container, Content, ProductCard } from "./styles";
 
 export function ProductListingForID() {
     // Utilizado para recuperar o ID conforme passando na URL
@@ -14,7 +19,7 @@ export function ProductListingForID() {
     const [product, setProduct] = useState();
 
     // Token de autorização para realizar ações na página
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NDk3OTI4OTgsImV4cCI6MTY0OTg3OTI5OH0.RQFHflwwhcXS3a1XgEXKMpGSNR-Q6NKy36XIcH9nVUE"
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA0ODg5MzQsImV4cCI6MTY1MDU3NTMzNH0.y5ikH9LB-m0WL0RTSD2DiTqc9_huT6lBfBkAIat5wAk"
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -33,18 +38,38 @@ export function ProductListingForID() {
 
 
     return (
-        <>
-            <h1>Listando produtos por ID</h1>
 
-            {/* Forma para renderizar o produto em tela */}
-            {product && (
-                <div>
-                    <span>{product.name}</span>
-                    <span>{product.description}</span>
-                    <span>{product.price}</span>
-                    <span>{product.categoryId}</span>
-                </div>
-            )}
-        </>
+        <Container>
+            <Content>
+
+                <h1>Listando produtos por ID</h1>
+                <p>Informações do produto selecionado.</p>
+                <a href="/product-listing"><MdKeyboardArrowLeft /></a>
+
+                {/* Forma para renderizar o produto em tela */}
+                {product && (
+
+                    <ProductCard>
+                        <div>
+                            <p>Produto:</p>
+                            <span>{product.name}</span>
+                        </div>
+
+                        <div>
+                            <p>Descrição:</p>
+                            <span>{product.description}</span>
+                        </div>
+
+                        <div>
+                            <p>Valor:</p>
+                            <span>{product.price}</span>
+                        </div>
+                    </ProductCard>
+
+                )}
+
+            </Content>
+        </Container>
+
     )
 }

@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
 
   padding: 3rem;
-  border-top: 2px solid #808080;
+  border-top: 2px solid #A9A9A9;
   background-color: #fafafa;
 `
 
