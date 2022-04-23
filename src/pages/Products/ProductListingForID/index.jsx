@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 // Importando a API
-import api from "../../services/api"
+import api from "../../../services/api"
 
 // Icons
 import { MdKeyboardArrowLeft } from "react-icons/md"

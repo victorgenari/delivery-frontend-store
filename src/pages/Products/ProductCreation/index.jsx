@@ -1,9 +1,9 @@
 // Hooks
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"
 
 // Chamada para a API
-import api from "../../services/api"
+import api from "../../../services/api"
 
 // Icons
 import { MdKeyboardArrowLeft } from "react-icons/md"
@@ -13,13 +13,13 @@ import { Container, Content } from './styles'
 
 export function ProductCreation() {
     // Const para utilizar o navigate (redirecionar a URL)
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     // Estados criados para pegar o valor de cada input abaixo e para informar ao produto também abaixo quem são esses valores
-    const [name, setName] = useState();
-    const [description, setDescription] = useState();
-    const [price, setPrice] = useState();
-    const [categoryId, setCatergoryId] = useState();
+    const [name, setName] = useState()
+    const [description, setDescription] = useState()
+    const [price, setPrice] = useState()
+    const [categoryId, setCatergoryId] = useState()
 
     const product = {
         name: name,
@@ -57,7 +57,7 @@ export function ProductCreation() {
 
                 <h1>Criação de Produtos</h1>
                 <p>Preencha os campos abaixo e salve.</p>
-                <a href="/product-listing"><MdKeyboardArrowLeft /></a>
+                <Link to="/product-listing"><MdKeyboardArrowLeft /></Link>
 
                 {/* Recuperando tudo oq é digitando entre os inputs pelo onChange */}
                 <input type="text" name="name" placeholder="Produto" onChange={(e) => setName(e.target.value)} />

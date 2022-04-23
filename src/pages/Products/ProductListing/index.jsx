@@ -1,9 +1,9 @@
 // Hooks
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 // API
-import api from "../../services/api"
+import api from "../../../services/api"
 
 import { RiDeleteBin2Line, RiEdit2Line } from "react-icons/ri"
 import { MdOutlineRemoveRedEye } from "react-icons/md"
@@ -12,7 +12,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md"
 import { MdKeyboardArrowLeft } from "react-icons/md"
 
 // CSS
-import { Container, Content, ProductBtns, ProductCard, PageInfos, BgAllProducts } from "./styles";
+import { Container, Content, ProductBtns, ProductCard, PageInfos, BgAllProducts, ProductDescriptions, BgProductImg } from "./styles"
 
 
 export function ProductListing() {
@@ -20,13 +20,13 @@ export function ProductListing() {
     const navigate = useNavigate();
 
     // Estado para recarregar a mesma tela (Lista de Produtos)
-    const [productRemoved, setProductRemoved] = useState(false);
+    const [productRemoved, setProductRemoved] = useState(false)
 
     // Estado armazenando todos os produtos
-    const [allProducts, setAllProducts] = useState();
+    const [allProducts, setAllProducts] = useState()
 
     // Token-Config de autorização para acessar
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA0ODg5MzQsImV4cCI6MTY1MDU3NTMzNH0.y5ikH9LB-m0WL0RTSD2DiTqc9_huT6lBfBkAIat5wAk"
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA2MzEzMzAsImV4cCI6MTY1MDcxNzczMH0.B76KpqbfBRdMseuD75wxBGDaxC_EY6WLjoqXn5MlQ4c"
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ export function ProductListing() {
                 <PageInfos>
                     <h1>Produtos</h1>
                     <p>Nesta pagína irá aparecer todos os produtos cadastrados.</p>
-                    <a href="/product-listing"><MdKeyboardArrowLeft /></a>
+                    <Link to="/"><MdKeyboardArrowLeft /></Link>
                 </PageInfos>
 
                 <BgAllProducts>
@@ -85,20 +85,29 @@ export function ProductListing() {
                         return (
                             <div key={p.id}>
                                 <ProductCard>
-                                    <span>Produto: {p.name}</span>
-                                    <span>Descrição: {p.description}</span>
-                                    <span>Preço: {p.price}</span>
-                                    <span>Categoria: {p.categoryId}</span>
 
-                                    <ProductBtns>
-                                        <button type="button" onClick={() => handleShow(p.id)}><MdOutlineRemoveRedEye title="Visualizar" /></button>
-                                        <button type="button" onClick={() => handleEdit(p.id)}><RiEdit2Line title="Editar" /></button>
-                                        <button type="button" onClick={() => handleDelete(p.id)}><RiDeleteBin2Line title="Excluir" /></button>
-                                    </ProductBtns>
+                                    <div>
+                                        <ProductDescriptions>
+                                            <span>Produto: {p.name}</span>
+                                            <span>Descrição: {p.description}</span>
+                                            <span>Preço: {p.price}</span>
+                                            <span>Categoria: {p.categoryId}</span>
+                                        </ProductDescriptions>
+
+                                        <ProductBtns>
+                                            <button type="button" onClick={() => handleShow(p.id)}><MdOutlineRemoveRedEye title="Visualizar" /></button>
+                                            <button type="button" onClick={() => handleEdit(p.id)}><RiEdit2Line title="Editar" /></button>
+                                            <button type="button" onClick={() => handleDelete(p.id)}><RiDeleteBin2Line title="Excluir" /></button>
+                                        </ProductBtns>
+                                    </div>
+
+
+                                    <BgProductImg>
+                                        <img src={p.picture} alt="Imagem Produto" width={160} />
+                                    </BgProductImg>
 
                                 </ProductCard>
                             </div>
-
                         )
                     })}
                 </BgAllProducts>

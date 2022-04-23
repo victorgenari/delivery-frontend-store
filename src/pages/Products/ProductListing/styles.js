@@ -35,7 +35,7 @@ export const Content = styled.div`
 
 export const BgAllProducts = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
 `
 
@@ -46,7 +46,7 @@ export const PageInfos = styled.div`
 
 export const ProductCard = styled.div`
     display: flex;
-    flex-direction: column;
+    gap: 2rem;
 
     padding: 1rem;
     border-radius: 0.5rem;
@@ -56,6 +56,11 @@ export const ProductCard = styled.div`
         transition: .3s;
         background: rgba(0, 0, 0, 0.2);
     }
+`
+
+export const ProductDescriptions = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 export const ProductBtns = styled.div`
@@ -79,5 +84,14 @@ export const ProductBtns = styled.div`
             transition: .5s;
             transform: translateY(-6px);
         }
+    }
+`
+
+export const BgProductImg = styled.div`
+    display: grid;
+    place-content: center;
+
+    img {
+        border-radius: 0.5rem;
     }
 `
