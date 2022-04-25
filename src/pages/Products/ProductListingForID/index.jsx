@@ -1,24 +1,14 @@
-// Hooks
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-
-// Importando a API
 import api from "../../../services/api"
-
-// Icons
+import { Link, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 import { MdKeyboardArrowLeft } from "react-icons/md"
-
-// CSS
-import { Container, Content, ProductCard } from "./styles";
+import { Container, Content, ProductCard, ProductDescriptions } from "./styles"
 
 export function ProductListingForID() {
-    // Utilizado para recuperar o ID conforme passando na URL
-    const routeParams = useParams();
+    const routeParams = useParams()
+    const [product, setProduct] = useState()
+    const [image, setImage] = useState()
 
-    // Armazenando o produto conforme selecionado pelo ID
-    const [product, setProduct] = useState();
-
-    // Token de autorização para realizar ações na página
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA0ODg5MzQsImV4cCI6MTY1MDU3NTMzNH0.y5ikH9LB-m0WL0RTSD2DiTqc9_huT6lBfBkAIat5wAk"
     const config = {
         headers: {
@@ -26,12 +16,11 @@ export function ProductListingForID() {
         }
     }
 
-    // useEffect criado recuperando o ID do produto para selecioná-lo corretamente conforme clicado (routeParams.id)
     useEffect(() => {
         api.get(`products/${routeParams.id}`, config).then(response => {
             if (response.status === 200) {
-                // Estado armazenando o produto aleatório conforme clicado
                 setProduct(response.data.data)
+                setImage(response.data.data.picture)
             }
         })
     }, [])
@@ -44,25 +33,30 @@ export function ProductListingForID() {
 
                 <h1>Listando produtos por ID</h1>
                 <p>Informações do produto selecionado.</p>
-                <a href="/product-listing"><MdKeyboardArrowLeft /></a>
+                <Link to="/product-listing"><MdKeyboardArrowLeft /></Link>
 
-                {/* Forma para renderizar o produto em tela */}
                 {product && (
 
                     <ProductCard>
-                        <div>
-                            <p>Produto:</p>
-                            <span>{product.name}</span>
-                        </div>
+                        <ProductDescriptions>
+                            <div>
+                                <p>Produto:</p>
+                                <span>{product.name}</span>
+                            </div>
+
+                            <div>
+                                <p>Descrição:</p>
+                                <span>{product.description}</span>
+                            </div>
+
+                            <div>
+                                <p>R$:</p>
+                                <span>{product.price}</span>
+                            </div>
+                        </ProductDescriptions>
 
                         <div>
-                            <p>Descrição:</p>
-                            <span>{product.description}</span>
-                        </div>
-
-                        <div>
-                            <p>Valor:</p>
-                            <span>{product.price}</span>
+                            <img src={image} alt="Imagem Produto" width={250} />
                         </div>
                     </ProductCard>
 

@@ -1,26 +1,15 @@
-// API
 import api from "../../../services/api"
-
-// Hooks
 import { useNavigate, useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-
-// Icons
 import { MdKeyboardArrowLeft } from "react-icons/md"
 
 
 export function CategoriesEditing() {
     const [name, setName] = useState()
-
-    // Estado armazenando a resposta do useEffect para a API
     const [category, setCategory] = useState()
-
-    // Coletando o ID do item conforme passando na URL
     const routeParams = useParams()
-
     const navigate = useNavigate()
 
-    // Token de autorização para editar a categoria
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA2MzY4MzgsImV4cCI6MTY1MDcyMzIzOH0.wNvSVwXG--sN4jLfo4iI4uIbeuDHovcJmCzNr8z1tXY"
     const config = {
         headers: {

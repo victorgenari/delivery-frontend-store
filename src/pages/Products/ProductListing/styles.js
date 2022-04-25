@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: 100vh;
 
     display: grid;
     place-content: center;
+
+    padding: 2rem 0;
 
     a {
         display: flex;
@@ -45,7 +46,8 @@ export const PageInfos = styled.div`
 `
 
 export const ProductCard = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
 
     padding: 1rem;
@@ -61,6 +63,16 @@ export const ProductCard = styled.div`
 export const ProductDescriptions = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 0.8rem;
+
+    span {
+        font-weight: 600;
+    }
+
+    h4 {
+        display: flex;
+        align-items: center;
+    }
 `
 
 export const ProductBtns = styled.div`
@@ -93,5 +105,24 @@ export const BgProductImg = styled.div`
 
     img {
         border-radius: 0.5rem;
+    }
+`
+
+export const BgTitlesAndButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+        button {
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+
+            &:hover {
+                filter: brightness(0.8);
+                transition: .3s;
+            }
+        }
     }
 `

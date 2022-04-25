@@ -1,10 +1,5 @@
-// API
 import api from "../../../services/api"
-
-// Hooks
 import { useEffect, useState } from "react"
-
-// Icons
 import { RiEdit2Line, RiDeleteBin2Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
 

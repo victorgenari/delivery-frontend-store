@@ -39,8 +39,9 @@ export const Content = styled.div`
 `
 
 export const ProductCard = styled.div`
-    display: grid;
-    gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 
     width: 100%;
     max-width: 600px;
@@ -52,8 +53,17 @@ export const ProductCard = styled.div`
 
     div {
         p {
-            font-size: 0.8rem;
             font-weight: 600;
         }
+
+        img {
+            border-radius: 0.5rem;
+        }
     }
+`
+
+export const ProductDescriptions = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 `

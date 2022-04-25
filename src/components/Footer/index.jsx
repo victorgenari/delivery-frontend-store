@@ -3,17 +3,17 @@ import {
     Container, Content, Copyright,
     Localization, IconAndAddress, Privacity,
     BgSocialMedias, FbAndTT, DivInsta,
-    InstaImgs, IconAndName, Contacts
+    InstaImgs, IconAndName
 } from './styles'
 
 // Icons
 import { GrLocation, GrFacebook, GrInstagram, GrTwitter } from 'react-icons/gr'
 
 // Imgs
-import ImgInstaLancheOne from '../../assets/images/lanche-one.jpg'
-import ImgInstaLancheTwo from '../../assets/images/lanche-two.jpg'
-import ImgInstaLancheThree from '../../assets/images/lanche-three.jpg'
-import ImgInstaLancheFour from '../../assets/images/lanche-four.jpg'
+import ImgInstaLancheOne from '../../assets/images/Footer/lanche-one.jpg'
+import ImgInstaLancheTwo from '../../assets/images/Footer/lanche-two.jpg'
+import ImgInstaLancheThree from '../../assets/images/Footer/lanche-three.jpg'
+import ImgInstaLancheFour from '../../assets/images/Footer/lanche-four.jpg'
 
 
 export function Footer() {
