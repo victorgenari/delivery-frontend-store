@@ -1,20 +1,22 @@
 // Rotas
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"
 
 // Pages
-import { Home } from './pages/Home';
+import { Home } from "./pages/Home"
 
-import { ProductCreation } from "./pages/Products/ProductCreation";
-import { ProductListing } from "./pages/Products/ProductListing";
-import { ProductListingForID } from "./pages/Products/ProductListingForID";
-import { ProductEditing } from "./pages/Products/ProductEditing";
+import { LogIn } from "./pages/LogIn"
 
-import { CategoriesCreation } from "./pages/Categories/CategoriesCreation";
-import { CategoriesListing } from "./pages/Categories/CategoriesListing";
-import { CategoriesEditing } from "./pages/Categories/CategoriesEditing";
+import { ProductCreation } from "./pages/Products/ProductCreation"
+import { ProductListing } from "./pages/Products/ProductListing"
+import { ProductListingForID } from "./pages/Products/ProductListingForID"
+import { ProductEditing } from "./pages/Products/ProductEditing"
+
+import { CategoriesCreation } from "./pages/Categories/CategoriesCreation"
+import { CategoriesListing } from "./pages/Categories/CategoriesListing"
+import { CategoriesEditing } from "./pages/Categories/CategoriesEditing"
 
 // CSS
-import { GlobalStyle } from "./styles/global";
+import { GlobalStyle } from "./styles/global"
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
+
+        <Route path="/login" element={<LogIn />} />
 
         <Route path="/product-creation" element={<ProductCreation />} />
         <Route path="/product-listing" element={<ProductListing />} />
@@ -44,4 +48,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

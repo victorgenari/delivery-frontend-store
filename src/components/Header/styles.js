@@ -97,7 +97,7 @@ export const IconAndBtnLogin = styled.div`
         margin-top: 5px;
     }
 
-    button {
+    a {
         font-size: 1.1rem;
         color: #FFFFFF;
         background: transparent;

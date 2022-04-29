@@ -1,10 +1,11 @@
-// CSS
-import { Company, Container, Content, IconAndBtnLogin, Cart, MenuList } from "./styles";
-
+import { Link } from "react-router-dom";
 import LogoImg from '../../assets/icons/logo.svg'
-
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import { FiLogIn } from 'react-icons/fi'
+import {
+    Company, Container, Content,
+    IconAndBtnLogin, Cart, MenuList
+} from "./styles";
 
 
 export function Header() {
@@ -29,7 +30,7 @@ export function Header() {
 
                 <IconAndBtnLogin>
                     <i><FiLogIn /></i>
-                    <button>Entrar</button>
+                    <Link to="/login">Entrar</Link>
                 </IconAndBtnLogin>
 
             </Content>

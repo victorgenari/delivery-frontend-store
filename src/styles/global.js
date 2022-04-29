@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
 
         a {
-            color: #000;
+            color: #000000;
         }
     }
 
