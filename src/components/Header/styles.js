@@ -80,12 +80,12 @@ export const IconAndBtnLogin = styled.div`
     align-items: center;
 
     font-size: 1.2rem;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1.5rem;
     border-radius: 0.5rem;
     gap: 0.3rem;
 
     color: #FFFFFF;
-    background: #708090;
+    background: #2E8B57;
 
     &:hover {
         cursor: pointer;

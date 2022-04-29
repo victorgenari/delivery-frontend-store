@@ -1,31 +1,39 @@
 import { Link } from "react-router-dom"
 import { FaUserAlt, FaLock, FaMailBulk } from "react-icons/fa"
 import { GrFacebook, GrInstagram, GrTwitter } from 'react-icons/gr'
-import { Container, Content, SocialMedias } from "./styles"
+import { TiArrowBack } from 'react-icons/ti'
+import { Container, Content, CreateAnAccountQuestion, EnterOrForgotPassword, InputsBg, ReturnArrow, SocialMedias } from "./styles"
 
 
 export function LogIn() {
     return (
         <Container>
             <Content>
-                <h1>LogIn</h1>
 
-                <div>
+                <ReturnArrow>
+                    <Link to="/" title="Tela inicial"><TiArrowBack /></Link>
+                </ReturnArrow>
+
+                <h1>Login</h1>
+
+                <InputsBg>
                     <FaUserAlt color="#b1acac" /> <input type="text" placeholder="Nome" />
-                </div>
-                <div>
+                </InputsBg>
+                <InputsBg>
                     <FaMailBulk color="#b1acac" /> <input type="email" placeholder="Email" />
-                </div>
-                <div>
+                </InputsBg>
+                <InputsBg>
                     <FaLock color="#b1acac" /> <input type="password" placeholder="Senha" />
-                </div>
+                </InputsBg>
 
-                <section>
+                <EnterOrForgotPassword>
                     <button type="button">Entrar</button>
                     <Link to="/">Esqueci minha senha</Link>
-                </section>
+                </EnterOrForgotPassword>
 
-                <p>Ainda não tem conta? <Link to="/">Crie uma conta</Link></p>
+                <CreateAnAccountQuestion>
+                    <p>Ainda não tem conta? <Link to="/">Crie uma conta</Link></p>
+                </CreateAnAccountQuestion>
             </Content>
 
             <SocialMedias>
@@ -33,6 +41,7 @@ export function LogIn() {
                 <a href="https://www.instagram.com" target="_blank"><GrInstagram /></a>
                 <a href="https://www.twitter.com" target="_blank"><GrTwitter /></a>
             </SocialMedias>
+
         </Container>
     )
 }

@@ -29,71 +29,96 @@ export const Content = styled.div`
         text-align: center;
         margin: 0 0 2rem 0;
     }
+`
 
-    div {
-        display: flex;
-        align-items: center;
+export const ReturnArrow = styled.div`
+    font-size: 1.8rem;
+    
+    transition: .3s;
+    transform: translateY(0);
 
+    &:hover {
+        transition: .5s;
+        transform: translateY(-6px);
+    }
+`
+
+export const InputsBg = styled.div`
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    font-size: 1.2rem;
+    padding: 0 0 0 0.5rem;
+    margin: 0 0 1rem 0;
+    border-radius: 0.5rem;
+    background: #FAFAFA;
+
+    input {
         width: 100%;
 
+        font-size: 1.2rem;
         padding: 0.5rem;
-        margin: 0 0 1rem 0;
-        border-radius: 0.5rem;
-        background: rgba(239, 239, 239);
+        background: transparent;
+    }
+`
 
-        input {
-            width: 100%;
-            font-size: 1.2rem;
+export const EnterOrForgotPassword = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    @media (max-width: 315px) {
+        flex-direction: column;
+
+        a {
             padding: 0.5rem;
-            background: transparent;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(239, 239, 239);
         }
     }
 
-    section {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-
-        @media (max-width: 325px) {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        a {
-            &:hover {
-                text-decoration: underline;
-            }
+    a {
+        &:hover {
+            text-decoration: underline;
+            color: blue;
         }
     }
 
     button {
-        width: 8rem;
         font-size: 1.2rem;
-        padding: 0.3rem 0;
-        border: 1px solid transparent;
+        padding: 0.3rem 1.5rem;
         border-radius: 0.5rem;
+        border: 1px solid rgba(239, 239, 239);
 
         &:hover {
-            cursor: pointer;
-            transition: .3s;
-            border: 1px solid rgba(239, 239, 239);
             background: transparent;
-        }
-
-        @media (max-width: 325px) {
-            margin: 1rem 0 0 0;
+            border: 1px solid rgba(239, 239, 239);
+            transition: .3s;
         }
     }
+`
+
+export const CreateAnAccountQuestion = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+
+    width: 100%;
 
     p {
+        padding: 0.3rem 1rem;
         margin: 1rem 0 0 0;
+        border-radius: 0.5rem;
+        border: 1px solid #FAFAFA;
+    }
 
-        a {
-            &:hover {
-                text-decoration: underline;
-            }   
+    a {
+        &:hover {
+            text-decoration: underline;
+            color: blue;
         }
     }
 `
@@ -106,4 +131,14 @@ export const SocialMedias = styled.div`
     font-size: 1.5rem;
     margin: 1rem 0 0 0;
     background: transparent;
+
+    a {
+        transition: .3s;
+        transform: translateY(0);
+
+        &:hover {
+            transition: .5s;
+            transform: translateY(-6px);
+        }
+    }
 `

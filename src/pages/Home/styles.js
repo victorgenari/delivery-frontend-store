@@ -125,6 +125,10 @@ export const BgCardsHighlights = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 
+    @media (max-width: 750px) {
+        grid-template-columns: 1fr;
+    }
+
     div {
         padding: 0.5rem;
         border-radius: 0.5rem;
@@ -173,6 +177,10 @@ export const BgCards = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+
+    @media (max-width: 750px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 export const BgCard = styled.div`
@@ -182,6 +190,10 @@ export const BgCard = styled.div`
     padding: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid #FAFAFA;
+
+    @media (max-width: 750px) {
+        justify-content: space-between;
+    }
 
     &:hover {
         filter: brightness(0.8);
