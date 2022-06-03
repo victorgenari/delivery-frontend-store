@@ -12,7 +12,6 @@ import { FaLock, FaMailBulk } from "react-icons/fa"
 import { GrFacebook, GrTwitter } from 'react-icons/gr'
 import { RiInstagramFill } from 'react-icons/ri'
 import { MdOutlineDeliveryDining } from 'react-icons/md'
-import { FcGlobe } from 'react-icons/fc'
 
 // Css
 import {

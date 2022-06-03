@@ -29,7 +29,6 @@ export function CategoriesEditing() {
     useEffect(() => {
         api.get(`categories/${routeParams.id}`).then(response => {
             if (response.status === 200) {
-                console.log(response)
                 setCategory(response.data.data)
                 setImage(response.data.data.picture)
             }

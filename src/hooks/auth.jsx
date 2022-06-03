@@ -15,6 +15,14 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         if (token && user) {
             api.defaults.headers.authorization = `Bearer ${token}`
+            api.get('/verify-token').then((response) => {
+                console.log(response.status)
+                if (response.status !== 200) {
+                    signOut()
+                }
+            }).catch((err) => {
+                signOut()
+            })
         }
     }, [token, user])
 

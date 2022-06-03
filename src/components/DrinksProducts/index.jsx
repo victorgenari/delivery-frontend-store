@@ -21,7 +21,6 @@ export function DrinksProducts() {
     useEffect(() => {
         api.get('/products').then(response => {
             if (response.status === 200) {
-                console.log(response)
                 setDrinksProducts(response.data.docs)
             }
         })

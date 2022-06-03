@@ -1,5 +1,5 @@
 import api from "../../../services/api"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { MdKeyboardArrowLeft } from "react-icons/md"
 import { Container, Content } from "./styles"
@@ -8,9 +8,6 @@ import { Container, Content } from "./styles"
 export function CategoriesCreation() {
     const [name, setName] = useState()
     const navigate = useNavigate()
-
-
-
 
     const NewCategory = {
         name: name
@@ -26,14 +23,6 @@ export function CategoriesCreation() {
             console.log(err.request)
         })
     }
-
-    useEffect(() => {
-        api.get('/categories').then(response => {
-            if (response.status === 200) {
-                console.log(response)
-            }
-        })
-    }, [])
 
     return (
         <Container>
