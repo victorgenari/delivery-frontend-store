@@ -1,121 +1,38 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    max-width: 1000px;
-    margin: 2rem auto;
+    max-width: 1100px;
+    margin: 5.5rem auto 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     padding: 1rem;
 `
 
+export const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`
+
 export const BgImgTop = styled.div`
     width: 100%;
+    max-width: 1100px;
 
     img {
         width: 100%;
     }
 `
 
-export const InputSearch = styled.div`
-    display: flex;
-    gap: 0.3rem;
-
-    width: 100%;
-
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 2px solid #FAFAFA;
-
-    i {
-        margin-top: 10px;
-    }
-
-    input {
-        width: 100%;
-        font-size: 1.5rem;
-        background: transparent;
-        border-bottom: 1px solid #000000;
-    }
-`
-
-// Info entregas
-export const DetailsDelivery = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    justify-content: space-around;
-
-    margin: 2rem 0 0 0;
-
-    @media (max-width: 845px) {
-        grid-template-columns: 1fr 1fr;
-    }
-`
-
-export const InfoValue = styled.div`
-    display: flex;
-    gap: 0.3rem;
-`
-
-export const TimeDelivery = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    text-align: center;
-    font-size: 0.9rem;
-    padding: 0.6rem;
-`
-
-export const IconAndTime = styled.div`
-    display: flex;
-    justify-content: center;
-    gap: 0.3rem;
-
-    i {
-        margin-top: 2px;
-    }
-`
-
-export const TypeDelivery = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    padding: 0.6rem;
-    gap: 0.2rem;
-
-    i {
-        font-size: 1.3rem;
-        margin-top: 4px;
-    }
-
-    button {
-        font-size: 1.3rem;
-        margin-top: 5px;
-        background: transparent;
-        color: red;
-    }
-`
-
-export const MoreDetails = styled.div`
-    display: flex;
-    justify-content: center;
-
-    button {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: red;
-        background: transparent;
-    }
-`
-
-// Highlights
 export const BgEndPoint = styled.div`
     display: flex;
     flex-direction: column;
 
     div {
         h1 {
-            margin: 2rem 0 1rem 0;
+            margin: 3rem 0 0.5rem 0;
         }
     }
 `
@@ -125,7 +42,7 @@ export const BgCardsHighlights = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 
-    @media (max-width: 750px) {
+    @media (max-width: 650px) {
         grid-template-columns: 1fr;
     }
 
@@ -170,9 +87,6 @@ export const BgCardsHighlights = styled.div`
     }
 `
 
-
-
-// All End Points
 export const BgCards = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -185,20 +99,23 @@ export const BgCards = styled.div`
 
 export const BgCard = styled.div`
     display: flex;
+    justify-content: space-between;
     gap: 1rem;
 
     padding: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid #FAFAFA;
-
-    @media (max-width: 750px) {
-        justify-content: space-between;
-    }
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.05);
 
     &:hover {
         filter: brightness(0.8);
         transition: .3s;
-        border: 1px solid #A9A9A9;
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 750px) {
+        justify-content: space-between;
     }
 
     div {
@@ -228,11 +145,66 @@ export const BgCard = styled.div`
         }
 
         img {
-            width: 12rem;
+            width: 10rem;
             height: 8rem;
 
             border-radius: 0.5rem;
         }
     }
 
+`
+
+export const ProductInformations = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 0.8rem 0 0.8rem 0;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        display: flex;
+        align-items: center;
+
+        font-size: 1rem;
+        margin-top: -0.3rem;
+    }
+
+    button {
+        display: flex;
+
+        padding: 0.5rem;
+        border-radius: 50%;
+
+        
+        border: 1px solid #FAFAFA;
+        background: transparent;
+    }
+
+    div {
+        display: flex;
+        gap: 1rem;
+    }
+`
+
+export const ProductImage = styled.div`
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 8rem;
+        height: 8rem;
+
+        border-radius: 0.5rem;
+    }
 `

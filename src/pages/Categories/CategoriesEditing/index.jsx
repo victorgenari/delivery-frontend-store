@@ -1,56 +1,109 @@
+// API
 import api from "../../../services/api"
-import { useNavigate, useParams, Link } from "react-router-dom"
+
+// React
 import { useEffect, useState } from "react"
+
+// React DOM
+import { useNavigate, useParams, Link } from "react-router-dom"
+
+// Icons
 import { MdKeyboardArrowLeft } from "react-icons/md"
+import { BsCheck2All } from "react-icons/bs"
+
+// CSS
+import { Container, Content, DescriptionsAndCategoryBg, ImgInputButtonAndMessageBg } from "./styles"
 
 
 export function CategoriesEditing() {
-    const [name, setName] = useState()
     const [category, setCategory] = useState()
+    const [name, setName] = useState()
+
+    const [image, setImage] = useState()
+    const [htmlEvent, setHtmlEvent] = useState()
+    const [resultImage, setResultImage] = useState(false)
     const routeParams = useParams()
     const navigate = useNavigate()
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA2MzY4MzgsImV4cCI6MTY1MDcyMzIzOH0.wNvSVwXG--sN4jLfo4iI4uIbeuDHovcJmCzNr8z1tXY"
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        }
-    }
-
+    // Pegando/selecionando a categoria pelo ID
     useEffect(() => {
-        api.get(`categories/${routeParams.id}`, config).then(response => {
+        api.get(`categories/${routeParams.id}`).then(response => {
             if (response.status === 200) {
+                console.log(response)
                 setCategory(response.data.data)
+                setImage(response.data.data.picture)
             }
         })
-    }, [])
+    }, [routeParams.id])
 
-    const categoryChanges = {
-        name: name,
-    }
-
+    // Editando a categoria
     async function editData() {
-        await api.patch(`categories/${routeParams.id}`, categoryChanges, config).then(response => {
-            // se a resposta for OK, ele irá chamar o navigate para outra URL
+        const categoryChanges = {
+            name: name,
+        }
+
+        await api.patch(`categories/${routeParams.id}/update`, categoryChanges).then(response => {
             if (response.status === 200) {
-                alert('Sua categoria foi alterada.')
+                alert('A categoria foi alterada.')
                 navigate(`/categories-listing`)
             }
         }).catch(err => {
             console.log(err.request)
         })
-
     }
 
+    // Preview da foto
+    function previewImage(event) {
+        if (event.target.files.length !== 0) {
+            setImage(URL.createObjectURL(event.target.files[0]))
+            setHtmlEvent(event)
+        }
+    }
+
+    // Alterando/Salvando a foto
+    async function changeAvatar() {
+        const data = new FormData()
+        data.append('file', htmlEvent.target.files[0])
+
+        await api.patch(`categories/${routeParams.id}/change-avatar`, data)
+            .then((response) => {
+                if (response.status === 200) {
+                    setResultImage(true)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+
     return (
-        <div>
-            <h1>Alterações</h1>
-            <p>Caso altere alguma categoria, não esqueça de salvá-la.</p>
-            <Link to="/categories-listing"><MdKeyboardArrowLeft /></Link>
+        <Container>
+            <Content>
+                <DescriptionsAndCategoryBg>
+                    <h1>Alterações</h1>
+                    <p>Caso altere alguma categoria, não esqueça de salvá-la.</p>
+                    <Link to="/categories-listing"><MdKeyboardArrowLeft size={30} /></Link>
 
-            <input type="text" name="name" defaultValue={category && category.name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" defaultValue={category && category.name} onChange={(e) => setName(e.target.value)} />
 
-            <button type="button" onClick={editData}>Salvar</button>
-        </div>
+                    <div>
+                        <button type="button" onClick={editData}>Salvar</button>
+                    </div>
+                </DescriptionsAndCategoryBg>
+
+                <ImgInputButtonAndMessageBg>
+                    <img src={image} title="imagem Produto" alt="Imagem Produto" width={280} />
+                    <label>Escolher arquivo
+                        <input type="file" onChange={(event) => previewImage(event)} />
+                    </label>
+
+                    <div>
+                        <button type="button" onClick={changeAvatar}><BsCheck2All /></button>
+                        {resultImage && <p>Sua imagem foi alterada.</p>}
+                    </div>
+                </ImgInputButtonAndMessageBg>
+            </Content>
+        </Container>
     )
 }

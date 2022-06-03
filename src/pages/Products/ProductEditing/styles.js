@@ -28,18 +28,29 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-    display: flex;
-    justify-content: space-around;
+    width: 100%;
+    max-width: 1000px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 1rem;
     gap: 2rem;
 
-    width: 100%;
-    max-width: 1000px;
+    @media (max-width: 625px) {
+        grid-template-columns: 1fr;
+
+        div {
+            div {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
 
     border-radius: 0.5rem;
     background: rgba(0, 0, 0, 0.1);
 
-    input {
+    input, select {
         width: 100%;
 
         font-size: 1.2rem;
@@ -51,15 +62,37 @@ export const Content = styled.div`
     }
 
     button {
-        width: 15rem;
+        width: 100%;
+        max-width: 15rem;
+
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
 
         font-size: 1.1rem;
         padding: 0.5rem 0;
         border-radius: 0.5rem;
 
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            transition: .3s linear;
+            z-index: -1;
+        }
+
         &:hover {
             filter: brightness(0.8);
             transition: .3s;
+
+            ::before {
+                width: 100%;
+                left: 0;
+            }
         }
     }
 `
@@ -72,13 +105,37 @@ export const Image = styled.div`
     gap: 0.5rem;
 
     img {
+        width: 100%;
+        max-width: 22rem;
+
         border-radius: 0.5rem;
     }
 
-    input {
-        font-size: 0.8rem;
+    label {
+        width: 100%;
+        max-width: 18rem;
+
+        display: flex;
+        justify-content: center;
+
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0.5rem 0 1rem 0;
+        padding: 0.3rem 0;
+        border-radius: 0.5rem;
+
+        background: #A9A9A9;
+
+        &:hover {
+            transition: .3s;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.1);
+        }
     }
 
+    input {
+        display: none;
+    }
 
     div {
         display: flex;
@@ -86,7 +143,18 @@ export const Image = styled.div`
         gap: 0.5rem;
 
         button {
-            width: 3rem;
+            display: flex;
+
+            width: 100%;
+
+            font-size: 1.1rem;
+            padding: 0.5rem 2rem;
+            border-radius: 0.5rem;
+
+            &:hover {
+                filter: brightness(0.8);
+                transition: .3s;
+            }
         }
     }
 `

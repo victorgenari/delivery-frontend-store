@@ -6,43 +6,63 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
 
+    top: 0;
+    position: fixed;
+    z-index: 100;
+
     background: #FAFAFA;
     border-bottom: 2px solid #A9A9A9;
 `
 
 export const Content = styled.div`
-    width: 65%;
+    width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: space-around;
 
-    padding: 1.1rem 0;
+    padding: 0.8rem 0;
     background: #FAFAFA;
+`
 
-    @media (max-width: 985px) {
-        width: 100%;
+export const CompanyLogoBg = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 5rem;
+
+    i {
+        font-size: 0.8rem;
+        user-select: none;
     }
 `
 
-export const Company = styled.div`
-    img {
-        width: 2.3rem;
-        height: 2.3rem;
-    }
+export const BikeLine = styled.div`
+    width: 100%;
+    max-width: 1.6rem;
+    height: 1.7px;
 
-    @media (max-width: 572px) {
-        display: none;
-    }
+    margin: -0.2rem 0 0 0;
+    background: #708090;
 `
 
 export const MenuList = styled.div`
     display: flex;
     gap: 1.5rem;
 
-    a {
+    a, button {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+
+        border-radius: 0;
         border-bottom: 1px solid transparent;
         padding: 0.5rem;
+
+        color: #000000;
+        background: transparent;
 
         &:hover {
             transition: .3s;
@@ -50,7 +70,7 @@ export const MenuList = styled.div`
         }
     }
 
-    @media (max-width: 525px) {
+    @media (max-width: 785px) {
         display: none;
     }
 `
@@ -58,48 +78,98 @@ export const MenuList = styled.div`
 export const Cart = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+`
 
-    gap: 1rem;
 
-    input {
+
+export const LoginButton = styled.div`
+    width: 100%;
+    max-width: 10rem;
+
+    a {
         width: 100%;
-        font-size: 1.1rem;
-        padding: 0 0.5rem 0 0;
-        border-radius: 0.3rem;
-        background: transparent;
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
 
-    i {
-        font-size: 1.3rem;
-        margin-top: 4px;
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
+
+        font-size: 1.1rem;
+        padding: 0.3rem 1.4rem;
+        border-radius: 0.5rem;
+        border: 2px solid #A9A9A9;
+
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background: #32CD32;
+            transition: .3s linear;
+            z-index: -1;
+        }
+
+        &:hover {
+            filter: brightness(0.8);
+            transition: .3s;
+
+            ::before {
+                width: 100%;
+                left: 0;
+            }
+        }
     }
 `
 
-export const IconAndBtnLogin = styled.div`
-    display: flex;
-    align-items: center;
+export const LogoutButton = styled.div`
+    width: 100%;
+    max-width: 10rem;
 
-    font-size: 1.2rem;
-    padding: 0.2rem 1.5rem;
-    border-radius: 0.5rem;
-    gap: 0.3rem;
+    button {
+        width: 100%;
 
-    color: #FFFFFF;
-    background: #2E8B57;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
 
-    &:hover {
-        cursor: pointer;
-        transition: .3s;
-        filter: brightness(0.9);
-    }
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
 
-    i {
-        margin-top: 5px;
-    }
-
-    a {
         font-size: 1.1rem;
+        padding: 0.3rem 1.4rem;
+        border-radius: 0.5rem;
+        border: 2px solid transparent;
+        background: #B22222;
         color: #FFFFFF;
-        background: transparent;
+
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background: #FA8072;
+            transition: .3s linear;
+            z-index: -1;
+        }
+
+        &:hover {
+            filter: brightness(0.8);
+            transition: .3s;
+
+            ::before {
+                width: 100%;
+                left: 0;
+            }
+        }
     }
 `

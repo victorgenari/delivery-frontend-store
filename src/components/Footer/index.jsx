@@ -1,3 +1,13 @@
+// Icons
+import { GrLocation, GrFacebook, GrTwitter } from 'react-icons/gr'
+import { RiInstagramFill } from 'react-icons/ri'
+
+// Imgs
+import ImgInstaLancheOne from '../../assets/images/Footer/lanche-one.jpg'
+import ImgInstaLancheTwo from '../../assets/images/Footer/lanche-two.jpg'
+import ImgInstaLancheThree from '../../assets/images/Footer/lanche-three.jpg'
+import ImgInstaLancheFour from '../../assets/images/Footer/lanche-four.jpg'
+
 // CSS
 import {
     Container, Content, Copyright,
@@ -5,15 +15,6 @@ import {
     BgSocialMedias, FbAndTT, DivInsta,
     InstaImgs, IconAndName
 } from './styles'
-
-// Icons
-import { GrLocation, GrFacebook, GrInstagram, GrTwitter } from 'react-icons/gr'
-
-// Imgs
-import ImgInstaLancheOne from '../../assets/images/Footer/lanche-one.jpg'
-import ImgInstaLancheTwo from '../../assets/images/Footer/lanche-two.jpg'
-import ImgInstaLancheThree from '../../assets/images/Footer/lanche-three.jpg'
-import ImgInstaLancheFour from '../../assets/images/Footer/lanche-four.jpg'
 
 
 export function Footer() {
@@ -24,7 +25,7 @@ export function Footer() {
 
                 <Copyright>
 
-                    <span>© Copyright 2022 - Company<br />Todos os direitos reservados 'Company'.</span>
+                    <span>© Copyright 2022 - DeliveryApp<br />Todos os direitos reservados DeliveryApp.</span>
 
                     <BgSocialMedias>
 
@@ -36,7 +37,7 @@ export function Footer() {
                         <DivInsta>
 
                             <IconAndName>
-                                <GrInstagram />
+                                <RiInstagramFill size={30} />
                                 <span>Instagram</span>
                             </IconAndName>
 

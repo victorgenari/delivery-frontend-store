@@ -9,19 +9,15 @@ export function CategoriesCreation() {
     const [name, setName] = useState()
     const navigate = useNavigate()
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA1NzI1NDcsImV4cCI6MTY1MDY1ODk0N30.94zykTXiWAnlw6Ip216lo2ztgfuzfaqLuHNbjsYeOH4"
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        }
-    }
+
+
 
     const NewCategory = {
         name: name
     }
 
     async function saveNewCategory() {
-        await api.post('categories/create', NewCategory, config).then(response => {
+        await api.post('categories/create', NewCategory).then(response => {
             if (response.status === 201) {
                 alert('A nova categoria foi cadastrada.')
                 navigate('/')
@@ -32,7 +28,7 @@ export function CategoriesCreation() {
     }
 
     useEffect(() => {
-        api.get('/categories', config).then(response => {
+        api.get('/categories').then(response => {
             if (response.status === 200) {
                 console.log(response)
             }

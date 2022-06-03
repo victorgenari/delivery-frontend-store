@@ -1,37 +1,57 @@
+// Hooks
+import { useAuth } from "../../hooks/auth";
+import { useSupportModal } from "../../hooks/supportmodal";
+
+// Tag A
 import { Link } from "react-router-dom";
-import LogoImg from '../../assets/icons/logo.svg'
-import { BsFillCartCheckFill } from 'react-icons/bs'
-import { FiLogIn } from 'react-icons/fi'
+
+// Icons
+import { MdShoppingCart, MdHome, MdOutlineDeliveryDining } from 'react-icons/md'
+import { FiLogIn, FiLogOut } from 'react-icons/fi'
+import { BiSupport } from 'react-icons/bi'
+import { FaHamburger, FaWineBottle } from 'react-icons/fa'
+
+// CSS
 import {
-    Company, Container, Content,
-    IconAndBtnLogin, Cart, MenuList
+    Container, Content, Cart, MenuList, LoginButton, CompanyLogoBg, BikeLine, LogoutButton
 } from "./styles";
 
 
 export function Header() {
+    const { user } = useAuth()
+    const { signOut } = useAuth()
+    const { OpenSupportModal } = useSupportModal()
+
     return (
         <Container>
             <Content>
 
-                <Company>
-                    <img src={LogoImg} alt="Logo Empresa" />
-                </Company>
+                <CompanyLogoBg>
+                    <MdOutlineDeliveryDining size={25} />
+                    <BikeLine></BikeLine>
+                    <i>DeliveryApp.</i>
+                </CompanyLogoBg>
 
                 <MenuList>
-                    <a href="/">Meus Pedidos</a>
-                    <a href="/">Lanches</a>
-                    <a href="/">Bebidas</a>
-                    <a href="/">Suporte</a>
+                    <Link to="/requests"><MdHome size={25} /> <span>Pedidos</span></Link>
+                    <Link to={`/products/category/14`}><FaHamburger size={20} /> Lanches</Link>
+                    <Link to={`/products/category/4`}><FaWineBottle size={20} /> <span>Bebidas</span></Link>
+                    <button type='button' onClick={OpenSupportModal}><BiSupport size={25} /> Suporte</button>
                 </MenuList>
 
                 <Cart>
-                    <i><BsFillCartCheckFill /></i>
+                    <MdShoppingCart size={25} />
                 </Cart>
 
-                <IconAndBtnLogin>
-                    <i><FiLogIn /></i>
-                    <Link to="/login">Entrar</Link>
-                </IconAndBtnLogin>
+                {user ? (
+                    <LogoutButton>
+                        <button type="button" onClick={signOut}> <FiLogOut /> Sair</button>
+                    </LogoutButton>
+                ) : (
+                    <LoginButton>
+                        <Link to="/signin"><FiLogIn /> Entrar</Link>
+                    </LoginButton>
+                )}
 
             </Content>
         </Container>

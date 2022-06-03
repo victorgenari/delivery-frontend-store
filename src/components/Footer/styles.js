@@ -6,9 +6,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
 
-  padding: 3rem;
+  padding: 4rem;
   border-top: 2px solid #A9A9A9;
   background-color: #fafafa;
+
+  @media (max-width: 650px) {
+    padding: 4rem 4rem 7rem 4rem;
+  }
 `
 
 export const Content = styled.div`
@@ -70,6 +74,7 @@ export const IconAndName = styled.div`
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  margin-top: -2px;
 `
 
 export const InstaImgs = styled.div`
@@ -97,6 +102,10 @@ export const IconAndAddress = styled.div`
   i {
     font-size: 1.1rem;
     margin-top: 4px;
+  }
+
+  @media (max-width: 975px) {
+    align-items: flex-start;
   }
 `
 

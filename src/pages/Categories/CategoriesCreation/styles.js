@@ -45,15 +45,37 @@ export const Content = styled.div`
     }
 
     button {
-        width: 15rem;
+        width: 100%;
+        max-width: 15rem;
+
+        position: relative;
+        overflow: hidden;
+        z-index: 0;
 
         font-size: 1.1rem;
         padding: 0.5rem 0;
         border-radius: 0.5rem;
 
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            transition: .3s linear;
+            z-index: -1;
+        }
+
         &:hover {
             filter: brightness(0.8);
             transition: .3s;
+
+            ::before {
+                width: 100%;
+                left: 0;
+            }
         }
     }
 `

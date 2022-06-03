@@ -2,6 +2,7 @@ import api from "../../../services/api"
 import { useEffect, useState } from "react"
 import { RiEdit2Line, RiDeleteBin2Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
+import { CategoryAndButtons, CategoryImage, Container, Content, FisrtContainer, TitleCategoryFirstContainer } from "./styles"
 
 
 export function CategoriesListing() {
@@ -20,19 +21,12 @@ export function CategoriesListing() {
     }, [categoryRemoved])
 
     function handleEdit(id) {
-        navigate(`/categories-editing/${id}`)
-    }
-
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA2MzAyMTIsImV4cCI6MTY1MDcxNjYxMn0.1kotU4wKtq5qy-UE9ZzOhJUJQgSD_hALpOUnEMYbR6M"
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        }
+        navigate(`/category-editing/${id}`)
     }
 
     async function handleDelete(id) {
 
-        await api.delete(`/categories/${id}`, config).then(response => {
+        await api.delete(`/categories/${id}/delete`).then(response => {
             if (response.status === 200) {
                 alert('A categoria selecionada foi deletada.')
                 setCategoryRemoved(true)
@@ -44,20 +38,39 @@ export function CategoriesListing() {
     }
 
     return (
-        <>
+        <FisrtContainer>
+            <TitleCategoryFirstContainer>
+                <h1>Categorias</h1>
+            </TitleCategoryFirstContainer>
+
             {categories && categories.map((category) => {
                 return (
-                    <div key={category.id}>
-                        <span>Categoria: {category.name}</span>
-                        <img src={category.picture} alt="Imagem categoria" width={50} />
+                    <Container key={category.id}>
+                        <Content>
 
-                        <div>
-                            <button type="button" onClick={() => handleEdit(category.id)}><RiEdit2Line title="Editar" /></button>
-                            <button type="button" onClick={() => handleDelete(category.id)}><RiDeleteBin2Line title="Excluir" /></button>
-                        </div>
-                    </div>
+                            <CategoryAndButtons>
+                                <div>
+                                    <span>{category.name}</span>
+                                </div>
+
+                                <div>
+                                    <button type="button" onClick={() => handleEdit(category.id)}>
+                                        <RiEdit2Line title="Editar" size={30} />
+                                    </button>
+                                    <button type="button" onClick={() => handleDelete(category.id)}>
+                                        <RiDeleteBin2Line title="Excluir" size={30} />
+                                    </button>
+                                </div>
+                            </CategoryAndButtons>
+
+                            <CategoryImage>
+                                <img src={category.picture} alt="Imagem categoria" />
+                            </CategoryImage>
+
+                        </Content>
+                    </Container>
                 )
             })}
-        </>
+        </FisrtContainer>
     )
 }

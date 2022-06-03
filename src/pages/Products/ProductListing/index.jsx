@@ -7,7 +7,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md"
 import {
     Container, Content, ProductBtns, ProductCard,
     PageInfos, BgAllProducts, ProductDescriptions, BgProductImg,
-    BgTitlesAndButton
+    BgTitlesAndButton, TitleButtons
 } from "./styles"
 
 
@@ -16,15 +16,8 @@ export function ProductListing() {
     const [productRemoved, setProductRemoved] = useState(false)
     const [allProducts, setAllProducts] = useState()
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImFkbWluIjoxLCJpYXQiOjE2NTA4MzUwMTcsImV4cCI6MTY1MDkyMTQxN30.cQ5pFmIkuUUmBnj2diSfrNwYMoTZeAq2QIrBDpbfEHk"
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        }
-    }
-
     useEffect(() => {
-        api.get('/products', config).then(response => {
+        api.get('/products').then(response => {
             if (response.status === 200) {
                 setAllProducts(response.data.docs)
             }
@@ -32,7 +25,7 @@ export function ProductListing() {
     }, [productRemoved])
 
     function handleShow(id) {
-        navigate(`/product-listing-for-ID/${id}`)
+        navigate(`/product-listing-for-id/${id}`)
     }
 
     function handleEdit(id) {
@@ -41,7 +34,7 @@ export function ProductListing() {
 
     async function handleDelete(id) {
 
-        await api.delete(`/products/${id}`, config).then(response => {
+        await api.delete(`/products/${id}/delete`).then(response => {
             if (response.status === 200) {
                 alert('O produto selecionado foi deletado.')
                 setProductRemoved(true)
@@ -52,7 +45,7 @@ export function ProductListing() {
     }
 
     function createNewProduct() {
-        navigate('/product-creation')
+        navigate('/products-creation')
     }
 
 
@@ -61,20 +54,16 @@ export function ProductListing() {
             <Content>
 
                 <BgTitlesAndButton>
-
                     <PageInfos>
                         <h1>Produtos</h1>
                         <p>Nesta pagína irá aparecer todos os produtos cadastrados.</p>
-                        <Link to="/"><MdKeyboardArrowLeft /></Link>
                     </PageInfos>
 
-                    <div>
+                    <TitleButtons>
+                        <Link to="/"><MdKeyboardArrowLeft /></Link>
                         <button type="button" onClick={createNewProduct}>Novo produto</button>
-                    </div>
-
+                    </TitleButtons>
                 </BgTitlesAndButton>
-
-
 
                 <BgAllProducts>
                     {allProducts && allProducts.map((p) => {
@@ -87,7 +76,6 @@ export function ProductListing() {
                                             <span>{p.name}</span>
                                             <p>{p.description}</p>
                                             <h4><MdAttachMoney size={20} />{p.price}</h4>
-                                            <h4>{p.categoryId}</h4>
                                         </ProductDescriptions>
 
                                         <ProductBtns>
@@ -96,7 +84,6 @@ export function ProductListing() {
                                             <button type="button" onClick={() => handleDelete(p.id)}><RiDeleteBin2Line title="Excluir" /></button>
                                         </ProductBtns>
                                     </div>
-
 
                                     <BgProductImg>
                                         <img src={p.picture} alt="Imagem Produto" width={160} height={160} />
