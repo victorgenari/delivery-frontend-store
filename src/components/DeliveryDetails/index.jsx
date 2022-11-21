@@ -1,42 +1,61 @@
 // Modal Context
-import { useMoreDetailsModal } from '../../hooks/moredetailsmodal'
+import { useMoreDetailsModal } from "../../hooks/moredetailsmodal";
 
 // Icons
-import { RiEBikeLine } from 'react-icons/ri'
-import { MdKeyboardArrowDown, MdOutlineWatchLater } from 'react-icons/md'
-import { GiReceiveMoney } from 'react-icons/gi'
+import { RiEBikeLine } from "react-icons/ri";
+import { MdKeyboardArrowDown, MdOutlineWatchLater } from "react-icons/md";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 // CSS
-import { DetailsDelivery, InfoValue, MoreDetails, IconAndTime, TimeDelivery, TypeDelivery } from "./styles"
-
+import {
+  Container,
+  InfoValue,
+  MoreDetails,
+  IconAndTime,
+  TimeDelivery,
+  TypeDelivery,
+} from "./styles";
 
 export function DeliveryDetails() {
-    const { OpenMoreDetailsModal } = useMoreDetailsModal()
+  const { OpenMoreDetailsModal } = useMoreDetailsModal();
 
-    return (
-        <DetailsDelivery>
-            <InfoValue>
-                <i><GiReceiveMoney /></i>
-                <span>Pedido mínimo: R$ 15,00</span>
-            </InfoValue>
+  return (
+    <Container>
+      <InfoValue>
+        <div>
+          <i>
+            <RiMoneyDollarCircleLine />
+          </i>
+          <span>Pedido mínimo:</span>
+        </div>
+        <span>R$ 15,00</span>
+      </InfoValue>
 
-            <TimeDelivery>
-                <span>Hoje</span>
-                <IconAndTime>
-                    <i><MdOutlineWatchLater /></i>
-                    <span>20-30 min • Grátis</span>
-                </IconAndTime>
-            </TimeDelivery>
+      <TimeDelivery>
+        <span>Hoje</span>
+        <IconAndTime>
+          <i>
+            <MdOutlineWatchLater />
+          </i>
+          <span>20-30 min • Grátis</span>
+        </IconAndTime>
+      </TimeDelivery>
 
-            <TypeDelivery>
-                <i><RiEBikeLine /></i>
-                <span>Entrega</span>
-                <button type="button"><MdKeyboardArrowDown /></button>
-            </TypeDelivery>
+      <TypeDelivery>
+        <i>
+          <RiEBikeLine />
+        </i>
+        <span>Entrega</span>
+        <button type="button">
+          <MdKeyboardArrowDown />
+        </button>
+      </TypeDelivery>
 
-            <MoreDetails>
-                <button type="button" onClick={OpenMoreDetailsModal}>Ver mais</button>
-            </MoreDetails>
-        </DetailsDelivery>
-    )
+      <MoreDetails>
+        <button type="button" onClick={OpenMoreDetailsModal}>
+          Ver mais
+        </button>
+      </MoreDetails>
+    </Container>
+  );
 }

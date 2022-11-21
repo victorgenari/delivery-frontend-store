@@ -33,7 +33,8 @@ export const BgCard = styled.div`
     &:hover {
         filter: brightness(0.8);
         transition: .3s;
-        border: 1px solid #A9A9A9;
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     div {

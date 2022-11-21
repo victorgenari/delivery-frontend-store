@@ -12,9 +12,9 @@ import {
 
 
 export function ProductListing() {
-    const navigate = useNavigate();
     const [productRemoved, setProductRemoved] = useState(false)
     const [allProducts, setAllProducts] = useState()
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('/products').then(response => {
@@ -25,11 +25,11 @@ export function ProductListing() {
     }, [productRemoved])
 
     function handleShow(id) {
-        navigate(`/product-listing-for-id/${id}`)
+        navigate(`/product/listing/for/id/${id}`)
     }
 
     function handleEdit(id) {
-        navigate(`/product-editing/${id}`)
+        navigate(`/product/editing/${id}`)
     }
 
     async function handleDelete(id) {
@@ -45,7 +45,7 @@ export function ProductListing() {
     }
 
     function createNewProduct() {
-        navigate('/products-creation')
+        navigate('/products/creation')
     }
 
 

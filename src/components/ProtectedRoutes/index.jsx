@@ -1,7 +1,7 @@
 import React from 'react';
-import {Navigate, Outlet} from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
-const useAuth=()=>{
+const useAuth = () => {
   const token = localStorage.getItem('@DeliveryStore:token')
   if (token) {
     return true
@@ -10,12 +10,12 @@ const useAuth=()=>{
   }
 }
 
-
-const ProtectedRoutes=() =>{
+const ProtectedRoutes = () => {
 
   const token = useAuth()
 
-  return token ? <Outlet/> : <Navigate to="/home"/>
+  return token ? <Outlet /> : <Navigate to="/home" />
+
 }
 
 export default ProtectedRoutes;

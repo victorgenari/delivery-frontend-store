@@ -32,8 +32,9 @@ export function ProductCreation() {
 
         await api.post('/products/create', product).then(response => {
             if (response.status === 201) {
+                console.log(response)
                 alert('Seu produto foi cadastrado.')
-                navigate('/products-listing')
+                navigate('/products/listing')
             }
         }).catch(err => {
             console.log(err.request)
@@ -46,7 +47,7 @@ export function ProductCreation() {
 
                 <h1>Criação de Produtos</h1>
                 <p>Preencha os campos abaixo e salve.</p>
-                <Link to="/products-listing"><MdKeyboardArrowLeft /></Link>
+                <Link to="/products/listing"><MdKeyboardArrowLeft /></Link>
 
                 <input type="text" name="name" placeholder="Produto" onChange={(e) => setName(e.target.value)} />
                 <input type="text" name="description" placeholder="Descrição" onChange={(e) => setDescription(e.target.value)} />

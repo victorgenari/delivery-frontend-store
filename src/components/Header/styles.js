@@ -16,6 +16,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     width: 100%;
+    max-width: 1400px;
 
     display: flex;
     align-items: center;
@@ -30,12 +31,13 @@ export const CompanyLogoBg = styled.div`
     flex-direction: column;
     align-items: center;
 
-    width: 100%;
-    max-width: 5rem;
-
     i {
         font-size: 0.8rem;
         user-select: none;
+    }
+
+    @media (max-width: 940px) {
+        display: none;
     }
 `
 
@@ -52,6 +54,10 @@ export const MenuList = styled.div`
     display: flex;
     gap: 1.5rem;
 
+    button {
+        font-size: 1rem;
+    }
+
     a, button {
         display: flex;
         align-items: center;
@@ -61,7 +67,7 @@ export const MenuList = styled.div`
         border-bottom: 1px solid transparent;
         padding: 0.5rem;
 
-        color: #000000;
+        color: rgb(0, 0, 0);
         background: transparent;
 
         &:hover {
@@ -75,100 +81,71 @@ export const MenuList = styled.div`
     }
 `
 
-export const Cart = styled.div`
+export const ShoppingCartAndButtons = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
-`
+    gap: 3rem;
 
-
-
-export const LoginButton = styled.div`
-    width: 100%;
-    max-width: 10rem;
-
-    a {
+    @media (max-width: 785px) {
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.3rem;
 
-        position: relative;
-        overflow: hidden;
-        z-index: 0;
-
-        font-size: 1.1rem;
-        padding: 0.3rem 1.4rem;
-        border-radius: 0.5rem;
-        border: 2px solid #A9A9A9;
-
-        ::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0%;
-            height: 100%;
-            background: #32CD32;
-            transition: .3s linear;
-            z-index: -1;
-        }
-
-        &:hover {
-            filter: brightness(0.8);
-            transition: .3s;
-
-            ::before {
-                width: 100%;
-                left: 0;
-            }
-        }
+        justify-content: space-evenly;
+        gap: 0;
     }
 `
 
-export const LogoutButton = styled.div`
-    width: 100%;
-    max-width: 10rem;
+export const MenuShoppingCart = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    button {
+    div {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: end;
+        }
+    }
+
+    img {
         width: 100%;
+        max-width: 2.5rem;
+    }
+`
 
+export const LoginButtons = styled.div`
+    button, a {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.3rem;
 
-        position: relative;
-        overflow: hidden;
-        z-index: 0;
+        width: 8rem;
 
         font-size: 1.1rem;
-        padding: 0.3rem 1.4rem;
+        padding: 0.5rem 0;
         border-radius: 0.5rem;
-        border: 2px solid transparent;
-        background: #B22222;
-        color: #FFFFFF;
 
-        ::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0%;
-            height: 100%;
-            background: #FA8072;
-            transition: .3s linear;
-            z-index: -1;
-        }
+        background: rgba(242, 38,19, 0.4);
 
         &:hover {
-            filter: brightness(0.8);
             transition: .3s;
+            cursor: pointer;
+            filter: brightness(0.8);
+            background: rgba(242, 38,19, 0.2);
+        }
 
-            ::before {
-                width: 100%;
-                left: 0;
+        &.login {
+            background: rgba(147, 250,165, 1);
+
+            &:hover {
+                transition: .3s;
+                cursor: pointer;
+                filter: brightness(0.8);
+                background: rgba(147, 250,165, 0.2);
             }
         }
     }

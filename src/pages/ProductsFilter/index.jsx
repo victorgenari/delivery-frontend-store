@@ -59,7 +59,7 @@ export function ProductsFilter() {
     }, [])
 
     function handleOpenProduct(id) {
-        navigate(`/product-listing-for-id/${id}`)
+        navigate(`/product/listing/for/id/${id}`)
     }
 
     return (

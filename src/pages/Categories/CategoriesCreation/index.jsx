@@ -17,7 +17,7 @@ export function CategoriesCreation() {
         await api.post('categories/create', NewCategory).then(response => {
             if (response.status === 201) {
                 alert('A nova categoria foi cadastrada.')
-                navigate('/')
+                navigate('/home')
             }
         }).catch(err => {
             console.log(err.request)

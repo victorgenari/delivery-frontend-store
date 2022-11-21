@@ -44,7 +44,7 @@ export function CategoriesEditing() {
         await api.patch(`categories/${routeParams.id}/update`, categoryChanges).then(response => {
             if (response.status === 200) {
                 alert('A categoria foi alterada.')
-                navigate(`/categories-listing`)
+                navigate(`/categories/listing`)
             }
         }).catch(err => {
             console.log(err.request)
@@ -82,7 +82,7 @@ export function CategoriesEditing() {
                 <DescriptionsAndCategoryBg>
                     <h1>Alterações</h1>
                     <p>Caso altere alguma categoria, não esqueça de salvá-la.</p>
-                    <Link to="/categories-listing"><MdKeyboardArrowLeft size={30} /></Link>
+                    <Link to="/categories/listing"><MdKeyboardArrowLeft size={30} /></Link>
 
                     <input type="text" defaultValue={category && category.name} onChange={(e) => setName(e.target.value)} />
 

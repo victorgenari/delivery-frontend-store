@@ -1,7 +1,16 @@
+// API
 import api from "../../../services/api"
+
+// Tag A / Use ID
 import { Link, useParams } from "react-router-dom"
+
+// Hooks
 import { useEffect, useState } from "react"
+
+// Icons
 import { MdKeyboardArrowLeft, MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md'
+
+// CSS
 import { AddOrRemoveToCart, Container, Content, ProductCard, ProductDescriptions, ProductImage } from "./styles"
 
 
@@ -29,7 +38,7 @@ export function ProductListingForID() {
                     <>
                         <div>
                             <h1>{product.name}</h1>
-                            <Link to="/products-listing"><MdKeyboardArrowLeft /></Link>
+                            <Link to="/"><MdKeyboardArrowLeft /></Link>
                         </div>
 
                         <ProductCard>
@@ -52,8 +61,18 @@ export function ProductListingForID() {
                                 </div>
 
                                 <AddOrRemoveToCart>
-                                    <button type='button' title='Adicionar ao Carrinho'><MdOutlineAddShoppingCart size={20} /></button>
-                                    <button type='button' title='Remover do Carrinho'><MdOutlineRemoveShoppingCart size={20} /></button>
+                                    <button
+                                        type="button"
+                                        title='Adicionar ao Carrinho'
+                                    >
+                                        <MdOutlineAddShoppingCart size={20} />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        title='Remover do Carrinho'
+                                    >
+                                        <MdOutlineRemoveShoppingCart size={20} />
+                                    </button>
                                 </AddOrRemoveToCart>
                             </ProductDescriptions>
 

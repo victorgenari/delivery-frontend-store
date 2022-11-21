@@ -56,7 +56,7 @@ export function ProductEditing() {
         await api.patch(`products/${routeParams.id}/update`, productChanges).then(response => {
             if (response.status === 200) {
                 alert('Seu foi produto foi alterado.')
-                navigate(`/products-listing`)
+                navigate(`/products/listing`)
             }
         }).catch(err => {
             console.log(err.request)
@@ -94,7 +94,7 @@ export function ProductEditing() {
                 <div>
                     <h1>Atualizações</h1>
                     <p>Caso efetue alterações no produto, não esqueça de salvar.</p>
-                    <Link to="/products-listing"><MdKeyboardArrowLeft /></Link>
+                    <Link to="/products/listing"><MdKeyboardArrowLeft /></Link>
 
                     <input type="text" name="name" defaultValue={product && product.name} onChange={(e) => setName(e.target.value)} />
                     <input type="text" name="description" defaultValue={product && product.description} onChange={(e) => setDescription(e.target.value)} />

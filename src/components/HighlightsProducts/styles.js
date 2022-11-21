@@ -27,8 +27,10 @@ export const BgCardsHighlights = styled.div`
         border: 1px solid #FAFAFA;
 
         &:hover {
-            border: 1px solid #A9A9A9;
             transition: .3s;
+            cursor: pointer;
+            filter: brightness(0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
 
             img {
                 filter: brightness(0.9);

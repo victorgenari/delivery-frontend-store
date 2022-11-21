@@ -10,7 +10,7 @@ export const Container = styled.div`
   border-top: 2px solid #A9A9A9;
   background-color: #fafafa;
 
-  @media (max-width: 650px) {
+  @media (max-width: 785px) {
     padding: 4rem 4rem 7rem 4rem;
   }
 `

@@ -47,7 +47,7 @@ export function SignUp() {
         await api.post('signup', newuser).then(response => {
             if (response.status === 201) {
                 toast.success('O usuário foi cadastrado!')
-                navigate('/login')
+                navigate('/signin')
             }
         }).catch(err => {
             console.log(err.request)

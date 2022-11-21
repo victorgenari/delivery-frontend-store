@@ -98,12 +98,16 @@ export const ProductInformations = styled.div`
 `
 
 export const ProductImage = styled.div`
+    width: 100%;
+    max-width: 8rem;
+    height: 8rem;
+
     display: flex;
     align-items: center;
 
     img {
-        width: 8rem;
-        height: 8rem;
+        width: 100%;
+        height: 100%;
 
         border-radius: 0.5rem;
     }

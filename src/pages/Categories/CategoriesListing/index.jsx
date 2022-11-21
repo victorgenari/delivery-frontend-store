@@ -21,7 +21,7 @@ export function CategoriesListing() {
     }, [categoryRemoved])
 
     function handleEdit(id) {
-        navigate(`/category-editing/${id}`)
+        navigate(`/category/editing/${id}`)
     }
 
     async function handleDelete(id) {

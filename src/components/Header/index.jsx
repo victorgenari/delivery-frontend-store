@@ -1,20 +1,25 @@
 // Hooks
-import { useAuth } from "../../hooks/auth";
-import { useSupportModal } from "../../hooks/supportmodal";
+import { useAuth } from "../../hooks/auth"
+import { useSupportModal } from "../../hooks/supportmodal"
 
 // Tag A
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+
+// Imgs
+import ShoppingCart from '../../assets/images/Header/shopping-cart.png'
 
 // Icons
-import { MdShoppingCart, MdHome, MdOutlineDeliveryDining } from 'react-icons/md'
+import { MdHome, MdOutlineDeliveryDining } from 'react-icons/md'
+import { FaHamburger, FaWineBottle } from 'react-icons/fa'
 import { FiLogIn, FiLogOut } from 'react-icons/fi'
 import { BiSupport } from 'react-icons/bi'
-import { FaHamburger, FaWineBottle } from 'react-icons/fa'
 
 // CSS
 import {
-    Container, Content, Cart, MenuList, LoginButton, CompanyLogoBg, BikeLine, LogoutButton
-} from "./styles";
+    Container, Content, CompanyLogoBg,
+    BikeLine, MenuList, ShoppingCartAndButtons,
+    MenuShoppingCart, LoginButtons
+} from "./styles"
 
 
 export function Header() {
@@ -39,19 +44,23 @@ export function Header() {
                     <button type='button' onClick={OpenSupportModal}><BiSupport size={25} /> Suporte</button>
                 </MenuList>
 
-                <Cart>
-                    <MdShoppingCart size={25} />
-                </Cart>
+                <ShoppingCartAndButtons>
+                    <MenuShoppingCart>
+                        <div>
+                            <span>Meu carrinho</span>
+                            <span>0 item&#40;ns&#41;</span>
+                        </div>
+                        <img src={ShoppingCart} alt="Sacola de Compras" />
+                    </MenuShoppingCart>
 
-                {user ? (
-                    <LogoutButton>
-                        <button type="button" onClick={signOut}> <FiLogOut /> Sair</button>
-                    </LogoutButton>
-                ) : (
-                    <LoginButton>
-                        <Link to="/signin"><FiLogIn /> Entrar</Link>
-                    </LoginButton>
-                )}
+                    <LoginButtons>
+                        {user ? (
+                            <button type="button" onClick={signOut}> <FiLogOut /> Sair</button>
+                        ) : (
+                            <Link to="/signin" className="login"><FiLogIn /> Entrar</Link>
+                        )}
+                    </LoginButtons>
+                </ShoppingCartAndButtons>
 
             </Content>
         </Container>
